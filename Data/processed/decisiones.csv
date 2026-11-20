@@ -1,0 +1,19 @@
+paso,columna,accion,filas_afectadas,justificacion
+convertir_numericos,asistencia_pct,quitar % y cambiar '-' por nulo,202,El guion es un faltante disfrazado y el % impide calcular promedios
+convertir_numericos,horas_trabajo_semana,cambiar '-' por nulo y convertir a número,2822,El guion significa que no hay dato; se trata en el paso 8
+convertir_numericos,distancia_km,cambiar 999 por nulo,152,"999 es un código de 'sin dato', no una distancia real"
+unificar_categorias,programa,normalizar con strip/lower y unificar variantes,260,La misma categoría escrita distinto se contaría como grupos separados
+unificar_categorias,jornada,normalizar con strip/lower y unificar variantes,485,La misma categoría escrita distinto se contaría como grupos separados
+unificar_categorias,genero,normalizar con strip/lower y unificar variantes,559,La misma categoría escrita distinto se contaría como grupos separados
+unificar_categorias,ciudad_procedencia,normalizar con strip/lower y unificar variantes,542,La misma categoría escrita distinto se contaría como grupos separados
+convertir_fechas,fecha_matricula,unificar dos formatos (AAAA-MM-DD y DD/MM/AAAA) en una fecha,3052,Pandas no puede interpretar dos formatos a la vez; con formato explícito se evita confundir día y mes
+eliminar_duplicados,todas las columnas,eliminar filas idénticas y conservar la primera aparición,150,Un id_estudiante identifica a una sola persona; repetirlo cuenta al mismo estudiante dos veces y distorsiona las tasas
+tratar_faltantes,promedio_acumulado,eliminar filas con nulo,298,Una nota no se puede inventar; imputar el promedio escondería la variación real de cada estudiante
+tratar_faltantes,ciudad_procedencia,reemplazar nulo por 'Sin dato',96,"Es una categoría: eliminar la fila perdería al estudiante, y así queda visible que el dato falta"
+tratar_faltantes,tipo_colegio,reemplazar nulo por 'Sin dato',145,"Es una categoría: eliminar la fila perdería al estudiante, y así queda visible que el dato falta"
+tratar_imposibles,promedio_acumulado,eliminar filas con promedio mayor a 5,15,"La escala es 0 a 5; valores como 62 o 78 siguen fuera de escala aun dividiéndolos, y una nota no se inventa"
+tratar_imposibles,edad,reemplazar edades fuera de 15-60 por la mediana,12,Edades de 150 o 12 años son errores de registro; la mediana no se ve afectada por extremos
+tratar_imposibles,horas_trabajo_semana,poner 0 horas a quien no trabaja,2703,Quien no trabaja tiene 0 horas; el guion original no era un dato faltante sino un cero
+tratar_imposibles,horas_trabajo_semana,reemplazar horas mayores a 100 por la mediana de quienes trabajan,29,"Una semana tiene 168 horas y más de 100 de trabajo es un error; se usa la mediana de quienes trabajan, no de todos"
+crear_variables,desertor,crear columna booleana a partir de estado,3136,Con True/False el promedio de la columna es directamente la tasa de deserción
+crear_variables,cuartil_asistencia,dividir asistencia_pct en cuatro grupos con qcut,9490,Los cuartiles dan grupos del mismo tamaño y permiten comparar tasas sin depender de valores exactos
