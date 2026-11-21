@@ -175,7 +175,7 @@ Todas las respuestas salen del dataset limpio (9.687 estudiantes). En cada una i
 | No | 36,4 % | 7.004 |
 | Sí | 21,9 % | 2.683 |
 
-**Respuesta:** Sí hay diferencia. Los no becados desertan 36,4 % y los becados 21,9 %, es decir, 14,5 puntos menos.
+**Respuesta:** Sí hay diferencia. Los no becados es 36,4 % y los becados 21,9 %, es decir, 14,5 puntos menos.
 
 **¿Prueba que la beca causa la permanencia?** No. Solo muestra que las dos cosas van juntas. Puede que la beca se la den a estudiantes que ya eran buenos o más comprometidos, y esos se habrían quedado de todas formas. Con esta tabla no se puede separar una cosa de la otra.
 
